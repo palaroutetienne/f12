@@ -1,0 +1,26 @@
+1;Quintonique -- Contient au moins un intervalle de 5 (quinte juste, sept demi-tons).
+2;Tonale/Polytonale -- Développe au moins un accord majeur ou mineur "parfait".
+3;Pseudo-tonale -- Développe au moins un accord majeur ou mineur "parfait" et ne diffère de la "gamme majeure", tonale par excellence, que par un seul degré (retranché, altéré ou ajouté).
+4;Hyper-tonale -- Dont les degrés sont engendrés par l'accouplement de deux accords "parfaits" (majeur et/ou mineur). Matrices de 6 sons exclusivement.
+5;Atonale --Ne développe aucun accord majeur ou mineur "parfaits", ni aucun intervalle de 5 (quinte juste sept demi-tons).
+6;Neutre -- Ne développe aucun accord majeur ou mineur "parfaits", mais admet au moins un degré pourvu d'une 5 (quinte juste, sept demi-tons).
+7;Cadentielle -- Dont le flux mélodico-harmonique ne trouve sa conclusion stricte que sur un accord majeur ou mineur 'parfaits" qui n'est pas développé par la Matrice en cause.
+8;Transpositrices -- Dont le flux mélodico-harmonique ne trouve théoriquement jamais sa conclusion.
+9;A.T.L., "A Transposition Limitée" -- Dont le nombre d'noncés différenciés (transpositions) est inférieur à douzes.
+10;Palindromique -- Dont au moins l'un des degrés développe une succession d'intervalles rigoureusement identiques en progressant du grave à l'aigu comme de l'aigu au grave.
+11;Idéodiatonique -- Dont les degrés sont exclusivement déclinés par la "gamme majeure", diatonique par excellence.
+12;Isocomplémentaire -- Dont les degrés produisent un quadrant rigoureusement identique à celui produit par les degrés inutilisés (complémentaires). Matrice de 6 sons exclusivement.
+13;Binaire-Bluesy -- Contient une succession d'intervalles 3m-2m-3m, (tierce mineure-seconde mineure-tierce mineure) soit un degré qui développe simultanéement un accord majeur et un accord mineur "parfait", le tout produisant une sonorité mélodique de type "blues" fondée sur ce degré.
+14;Hispanisante -- Contient la succession d'intervalles 2m-2M (seconde mineure-seconde majeure) à partir d'un degré quelconque, produisant ainsi une sonorité mélodique de type "flamenca" (Espagne) fondée sur ce degré.
+15;Orientalisante -- Contient la succession d'intervalles 2m-3m (seconde mineure-tierce mineure) à partir d'un degré quelconque, produisant ainsi une sonorité mélodique de type oriental fondée sur ce degré.
+16;Atritonique -- Ne contient aucun intervalle de 4#/5♭ (quarte augmentée/quinte diminuée, six demi-tons ou "triton").
+17;Anhémitonique -- Ne contient aucun intervalle de 2m (seconde mineure, un demi-ton).
+18;Omniphonique -- Contient tous les (six) types d'intervalles.
+19;Panscalaire -- Dont le quadrant produit un axe de symétrie fondé sur un degré étranger à la Matrice.
+20;Transcalaire -- Dont le quadrant produit un axe de symétrie fondé sur une paire de degrés étrangers à Matrice.
+21;Hétéroscalaire -- Dont le quadrant ne produit aucun axe de symétrie. Par retournement, la Matrice est donc parente d'une autre Matrice contenant le même nombre de degrés.
+22;Orthoscalaire -- Dont le quadrant produit au moins un angle droit,qui développe un accord de trois sons particulier, tritonique, parmi cinq possibles.
+23;Nombre de Matrices résultant du (des) choix présentement validé(s).
+24;Choisir une Matrice à partir du tableau des 351 possibilités.
+25;Annuler tous les choix présentement validés.
+26;Revenir à la page précédente.

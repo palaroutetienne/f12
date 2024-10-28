@@ -1,0 +1,33 @@
+Algo matriceEureka
+
+Fonction SurClicPoint()
+
+    si(ajout note)
+        alors
+            Changement couleur point
+            Mémorisation infos note dans tabJSNotes
+        sinon
+            Changement couleur point
+            Suppression infos note dans tabJSNotes
+    Fsi
+
+    Tri des notes par numOrdreNote
+    Création énoncé binaire à partir de tabJSNotes
+
+    trouve = vrai
+    Si(pas de 1 au début énoncé trié)
+        alors
+            Si(énoncé != "000000000000")
+                alors
+                    Recherche des possibles (les arrangements):
+                    Modif de l'énoncé pour qu'il commence par un 1 (premier trouvé, premier pris)
+            Fsi
+    Fsi
+
+    Récup infos dans tabToutesLesMatrices
+
+    Affichage matrice traçage lignes
+
+    MAJ contenu des zones : nomenclature, num matrice et nb_sons
+
+Fin Fonction

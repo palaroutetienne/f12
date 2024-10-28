@@ -1,0 +1,87 @@
+1 – il est impératif de disposer le quadrant vierge initial de sorte que la NOTE RÉ se présente TOUT EN HAUT = pôle axial = quadrant de la gamme majeure énoncée en notes naturelles ;
+
+ 
+
+2 – pour la commodité d’utilisation (et la logique usuelle standard), il faudrait que la sélection des points / notes soit proposée EN BASCULE :
+
+ 
+
+• clic sur une note = validation
+
+• re-clic (juste après ou pas) sur cette même note = dévalidation.
+
+ 
+
+Ce qui éviterait, lorsque – présentement – on se trompe de note(s), de devoir recommencer la sélection de l’ensemble des notes que l’on cherche à identifier.
+
+ 
+
+3 – PROBLÊME de NOMENCLATURE. Lorsque, par exemple, les notes La-Do-Mi sont sélectionnées et produisent le quadrant triangulaire correspondant, l’info de nomenclature indique :
+
+ 
+
+« 7sus4(9b) sans 1! ni 5, chiffrage harmonique neutre »,
+
+ 
+
+ce qui est incorrect, attendu que cela devrait être, au plus évident :
+
+ 
+
+« Mineur “parfait”, m, chiffrage harmonique tonal mineur »
+
+(ayant la note La pour fondamentale puisque la validation des notes AURA – supposément – ÉTÉ COMMENCÉE par un clic sur cette note La).
+
+ 
+
+Certes, ce n’est pas totalement faux puisque La-Do-Mi correspond aussi à l’accord à 7sus7(9b)… mais dans lequel (gros hic !) la fondamentale (note Si) est ABSENTE (indication « sans 1! »)… ce qui est très confusant question IDENTIFICATION de l’accord, tout particulièrement pour les néophytes en harmonie.
+
+ 
+
+De plus, si l’on valide ces trois mêmes notes dans un ordre différent (par exemple Mi-Do-La ou encore Do-La-Mi, etc.), l’info de nomenclature fournit TOUJOURS la même réponse partiellement fausse… ce qui fait que, au final, la réponse correcte d’ACCORD PARFAIT MINEUR m’émerge JAMAIS, chose vraiment fâcheuse.
+
+ 
+
+Bon, il semble que le problème tienne au fait que le quadrant ne se relie actuellement qu’à UNE SEULE info de nomenclature (dans le cas de La-Do-Mi, cette info correspond au classement (issu du code binaire) « 10-1 » – cf. fichier « FULL351MATRICES2019-datas1.pdf »). Aussi la plus simple solution est de fournir l’INTÉGRALITÉ des infos de nomenclature pour tout quadrant, quel qu’il soit. Dans le cas de La-Do-Mi, cela devra donc être :
+
+ 
+
+• 7sus4(9b) sans 1! ni 5, chiffrage harmonique neutre
+
+• 7M sans 1!, chiffrage harmonique tonal majeur
+
+• m7,5b sans 1!, chiffrage harmonique tonal mineur
+
+• Non-classé
+
+• Mineur “parfait”, m, chiffrage harmonique tonal mineur.
+
+ 
+
+En ce qui concerne l’écoute audio, c’est globalement OK. Sauf :
+
+ 
+
+1 – Quoique les transpositions via rotation du quadrant soient efficaces pour les noms de notes, elle ne le sont pas pour les HAUTEURS jouées… ce qui est très dommage. En outre et dans l’idéal cela devrait pouvoir s’opérer en temps réel, PENDANT l’écoute.
+
+ 
+
+2 – Quand l’exécution est lancée, le bouton “Entendre” vert doit se changer en “Stop” rouge.
+
+ 
+
+3 – Paramètres Hauteurs : les options en changements de Registre et d’Ambitus ne fonctionnent pas… En outre il serait beaucoup plus confortable de permettre ces changement PENDANT l’écoute, plutôt que d’être présentement contraint d’arrêter celle-ci pour les valider.
+
+ 
+
+4 – Visualisation Piano, c’est bon. Et pour la Guitare ?
+
+ 
+
+5 – Paramètre Tempo : il serait là aussi beaucoup plus confortable de permettre la modif PENDANT l’écoute.
+
+ 
+
+6 – Paramètre Encyclopédie : au chantier que je vois s’afficher, il est en cours de finalisation, n’est-ce pas ?
+
+ 

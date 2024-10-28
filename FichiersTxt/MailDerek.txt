@@ -1,0 +1,52 @@
+1- clic sur FORCE DOUZE —> OK (mais… ta photo + cv ?).
+
+ 
+
+2- clic sur EURÊKA et MANUEL —> info « en construction », ce qui invalide le retour à la Page d’Accueil, contraignant à repartir depuis le lien initial pour accéder de nouveau à cette Page. En somme il faudrait pouvoir ré-afficher au moyen (conventionnel) du simple clic hors la fenêtre en cours, comme c’est le cas en ce qui concerne la fenêtre du logo Force Douze.
+
+ 
+
+3- clic sur AUTO —> Bon, j’ai fait tous les essais avec des matrices de 3 sons proposées par le choix aléatoire.
+
+ 
+
+– EXÉCUTION ON / OFF : lorsqu’elle est lancée l’arrêt se fait seulement via clic sur le bouton « point noir sur fond blanc ». Cependant un bouton rouge STOP en affichage bascule a été prévu… En outre, comme dans tout séquenceur il serait judicieux (pour la version ordi, et non smartphone) de proposer l’arrêt au moyen de la barre d’espacement du clavier ; ainsi que, à l’inverse, le lancement de l’exécution via touche retour / validation.
+
+ 
+
+– EXÉCUTION / NOTE DE DÉPART : il n’est pas possible de la définir AVANT le lancement… c’est-à-dire, à l’arrêt, au moyen d’un clic SUR la note par laquelle on désire que commence l’écoute.
+
+ 
+
+– EXÉCUTION / CURSEURS DE COMMANDE : celui du haut (volume) fonctionne très bien. En revanche celui du bas (vitesse) a tendance à interrompre l’exécution lorsqu’on le manipule pendant l’écoute… Pour ce qui est du visuel esthétique de ces curseurs, l’idéal est celui prévu par les graphismes des fichiers Illustrator initiaux à ce sujet.
+
+ 
+
+– TRANSPOSITIONS ROTATIVES :
+
+• OK pour le rendu visuel, qui est très bon (cadre transparent, points des notes et couleurs parfaits !), mais qui serait vraiment idéal avec des majuscules aux intitulés : Do, plutôt que do ; ainsi que des signes « # » en typo musicale (Petrucci) ; sans oublier (bouton afférent « Hauteurs ») les propositions de noms de notes en bémols, et idem pour leurs typos.
+
+ 
+
+• Le pointeur de souris ne demeure pas une flèche lorsqu’il est promené alternativement entre le dessin du quadrant et le cadre circulaire des transpositions, ce pointeur se transformant dans ce cadre en une trop petite croix noire de pointage, qui devient même presque invisible à moins d’atteindre un nom de note. Bref il faudrait agrandir nettement cette croix de pointage, et lui attribuer possiblement une couleur vive. Ainsi cela serait beaucoup plus confortable pour opérer les rotations.
+
+ 
+
+• Des manipulations quelque peu “brutales” (c-a-d précipitées, avec double-clic combiné ou pas) opérées dans le cadre circulaire ont tendance à faire DÉBORDER les noms de notes HORS de ce cadre…
+
+ 
+
+• Impératif : il faut que tout quadrant soit systématiquement présenté en “POSITION DROITE”, c’est-à-dire tel que le visuel “axial” apparaît pour les 351 Matrices dans les fichiers Illustrator initiaux.
+
+ 
+
+• Important : La rotation s’effectue dans un ordre qui n’affiche PAS celui des noms de notes enchaînées dans l’ordre chromatique conventionnel. Par exemple, sur l’un des quadrants que j’ai testé (à savoir parfait majeur Do-Mi-Sol), le cliqué-glissé en rotation horaire et via incrément de 1 unité à partir du pointage sur la note Do fait “sauter” celle-ci à la note Sol# après relâchement de la souris, tandis que ce devrait être Do# (1 demi-ton chromatique après Do)… Toujours pour l’intitulé Do, avec 2 unités cela “saute” à Sol, tandis que ce devrait être Ré. Quant au sens anti-horaire, le Do / 1 unité “saute” à La, ce qui n’est pas non plus correct, et de surcroît pas logique relativement au sens horaire / 1 unité (en fait la rotation anti-horaire / 1 unité se trouve équivaloir à la rotation horaire / 12 unités). Bref, tout cela fait qu’il est assez malaisé de choisir rapidement et confortablement une transposition PRÉCISE, c’est-à-dire qui répond à la LOGIQUE des chromatismes successifs, tant vers l’aigu que le grave.
+
+ 
+
+• En manipulant la zone circulaire il m’est arrivé (1 fois sur 20, environ, et via la manière “brutale” sus dite) de faire surgir un énoncé transposé dont les noms de notes ne CORRESPONDAIENT PAS au dessin du quadrant… Pour être tout à fait concret, le quadrant de 3 sons testé étant fondé sur les notes Sol-Sol#-Si, celles-ci se sont vues décalées à Sol#-La-Do (1 demi-ton plus haut) pour un dessin de quadrant visuellement fixé sur ces derniers noms de notes, l’affichage demeurant cependant Sol-Sol#-Si. En revanche l’exécution audio jouait effectivement les notes affichées : Sol-Sol#-Si. Bref, conjointement au problème du point précédent, il faut vérifier par le détail la programmation des transpositions rotatives, où il se peut que la solution soit liée à la bonne disposition “droite / axiale” du quadrant, qui n’est pour le moment pas celle qu’elle doit être en finalité absolue.
+
+ 
+
+• Enfin, pour le clavier si l’idéal est évidemment 88 touches, je conçois que sur un smartphone il va falloir de bons yeux ! Aussi réservons 88 touches pour la version ordi, et réduisons à 60 / 5 octaves pour Androïd, tel que présentement, ce qui est d’ailleurs usuel pour nombre de synthés matériels.
+

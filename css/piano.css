@@ -1,0 +1,63 @@
+
+#conteneur_piano {
+	padding: 0vw;
+	background-image: url("../images/piano2_base.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#marge_piano {
+	margin-top: 4.5vw;
+	margin-left: 1vw;
+	margin-right: 1vw;
+}
+.key {
+	float: left;
+	position: relative;
+}
+
+.key.pressed,
+.key:active {
+    background-color: #999090;
+}
+
+.white {
+	visibility: visible;
+	z-index: 1;
+	border-top: 0.12vw solid #AAAAAA;
+	border-bottom: 0.12vw solid #AAAAAA;
+	border-left: 0.12vw solid #AAAAAA;
+	background-color: #CBCBCB;
+	cursor: pointer;
+	margin: 0vw -0.3vw 0vw -0.4vw;
+}
+
+.black {
+	visibility: visible;
+	height: 5vw;
+	z-index: 2;
+	border: 0.12vw solid #000000;
+	background-color: #222222;
+	cursor: pointer;
+}
+
+.f,.c{
+	margin-left: 0vw;
+}
+
+  
+.b,.e{
+	margin-right: 0.1vw;
+}
+
+#keyboard > .note:last-child {
+	border-right: 0.12vw solid #AAAAAA;
+
+}
+#keyboard{
+	display: grid;  
+	grid-template-columns: repeat(88, 1fr);  
+	grid-template-rows: repeat(1, 0.46fr);
+	width: 80vw;
+	height: 20vw;
+}

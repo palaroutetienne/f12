@@ -1,0 +1,2 @@
+1) Pourquoi l'énoncé des matrices 140 et 150, bicolores, ne se pésente pas comme sur l'image de la page Auto
+(constat de rotation inapropriée qui fait que la coloration se passe mal) (réponse dans le fichier faire F12.txt)

@@ -1,0 +1,74 @@
+
+/* Exemple : jouer un C4 pendant la durée d'1/8 de note : monsynthguitareetiser.triggerAttackRelease('C4', '8n') */
+function guitare()
+{
+	$("#conteneur_piano").hide();
+	$("#keyboard").empty();
+	$("#guitar").load( "v_guitare.html" );
+	$("#conteneur_guitare").show();
+
+	if(typeof synth !== "undefined"){
+		synth.dispose();
+	}
+	const synthguitare = new Tone.FMSynth({
+		"harmonicity": 8,
+		"modulationIndex": 2,
+		"oscillator": {
+			"type": "sine"
+		},
+		"envelope": {
+			"attack": 0.001,
+			"decay": 2,
+			"sustain": 0.1,
+			"release": 2
+		},
+		"modulation": {
+			"type": "square"
+		},
+		"modulationEnvelope": {
+			"attack": 0.002,
+			"decay": 0.2,
+			"sustain": 0,
+			"release": 0.2
+		}
+	});
+
+	synthguitare.connect(volume);
+
+	const guitare = document.getElementById("guitar");
+
+	guitare.addEventListener("mousedown", e => {
+		synthguitare.triggerAttack(e.target.dataset.note); /*Récupère la valeur de l'attribut data-note et la joue*/
+	});
+	guitare.addEventListener("mouseup", e => {
+		synthguitare.triggerRelease();
+	});
+	var data_notes = {
+		grose: ['E2','F2','F#2','G2','G#2','A2','A#2','B2','C3','C#3','D3','D#3','E3'],
+		a: ['A2','A#2','B2','C3','C#3','D3','D#3','E3','F3','F#3','G3','G#3',"A3"],
+		d: ['D3','D#3','E3','F3','F#3','G3','G#3','A3','A#3','B3','C4','C#4','D4'],
+		g: ['G3','G#3','A3','A#3','B3','C4','C#4','D4','D#4','E4','F4','F#4','G4'],
+		b: ['B3','C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4'],
+		e: ['E4','F4','F#4','G4','G#4','A4','A#4','B4','C5','C#5','D5','D#5','E5']
+	};
+	var notes = {
+		grose: ['E2','F2','Fdiese2','G2','Gdiese2','A2','Adiese2','B2','C3','Cdiese3','D3','Ddiese3','E3'],
+		a: ['A2','Adiese2','B2','C3','Cdiese3','D3','Ddiese3','E3','F3','Fdiese3','G3','Gdiese3',"A3"],
+		d: ['D3','Ddiese3','E3','F3','Fdiese3','G3','Gdiese3','A3','Adiese3','B3','C4','Cdiese4','D4'],
+		g: ['G3','Gdiese3','A3','Adiese3','B3','C4','Cdiese4','D4','Ddiese4','E4','F4','Fdiese4','G4'],
+		b: ['B3','C4','Cdiese4','D4','Ddiese4','E4','F4','Fdiese4','G4','Gdiese4','A4','Adiese4','B4'],
+		e: ['E4','F4','Fdiese4','G4','Gdiese4','A4','Adiese4','B4','C5','Cdiese5','D5','Ddiese5','E5']
+	};
+	$(document).ready(function () {
+		for (var i=0; i < notes.e.length; i++)
+		{
+			$('#guitar').prepend('<div class="fret"></div>');
+				$("#cordegros-e").append('<div data-note="'+data_notes.grose[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.grose[i]+'>'+notes.grose[i]+'</div>');
+				$("#cordea").append('<div data-note="'+data_notes.a[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.a[i]+'>'+notes.a[i]+'</div>');
+				$("#corded").append('<div data-note="'+data_notes.d[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.d[i]+'>'+notes.d[i]+'</div>');
+				$("#cordeg").append('<div data-note="'+data_notes.g[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.g[i]+'>'+notes.g[i]+'</div>');
+				$("#cordeb").append('<div data-note="'+data_notes.b[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.b[i]+'>'+notes.b[i]+'</div>');
+				$("#cordee").append('<div data-note="'+data_notes.e[i]+'" class="'+(i==0 ? ' vide' : 'note') +'" id='+notes.e[i]+'>'+notes.e[i]+'</div>');
+		}
+	});
+}

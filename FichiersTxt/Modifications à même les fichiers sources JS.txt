@@ -1,0 +1,15 @@
+Modification à même le fichier konvas.min.js :
+- recherche du mot "crosshair" et remplacement par "move" pour changer le pointeur pas beau.
+Modification à même le fichier Nexus.min.js :
+- recherche du mot "accent" : j'ai trouvé un attribut this.colors.accent qui sert à colorier 
+tous les composants graphiques de Nexus. j'ai mis un attribut colors.accent2 à la valeur jaune (#ff6f)
+que j'ai attribué comme couleur au knob (le bouton des sliders) dans l'instruction :
+this.knob.setAttribute("fill", this.colors.accent2); à deux endroits du fichier... je crois.
+Donc je peux donner une valeur transparente à Nexus.colors.accent sans que cela n'affecte la couleur du "knob"
+du slider qui reste jaune.
+
+SOLUTION meilleure :
+En fait, il suffisait de faire : ctl_tempo.knob.setAttribute('fill','#...');
+ça ouvre des possibilités infinies : ctl_tempo.knob.className = " ... ";
+etc.
+I simply rock, don't I ?

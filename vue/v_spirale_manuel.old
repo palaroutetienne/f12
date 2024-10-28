@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>FORCE 12</title>
+		
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" href="../js/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/fonction_chercheRang.js"></script>	
+        <script src="../js/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>	
+		<script type="text/javascript" src="../js/maphilight/jquery.maphilight.min.js"></script>
+        <script type="text/javascript">
+            function clicCarte(id) 
+            {
+                $('#enonce').val(id);
+                $('#formulaire').submit();
+            }
+
+            $(document).ready(function(){
+                var donnees = {}; //Pour stocker les param de maphilight (eq à mettre l'attribut data-maphilight dans les areas
+                $('#image-spirale').maphilight(); //Instancier l'objet maphilight
+                //Paramétrer l'objet maphilight
+                donnees.alwaysOn = false;
+                donnees.fillColor = 'FFFFFF'; //blanc
+                donnees.strokeColor = 'f39e77'; //orange
+                donnees.strokeWidth ='4';
+                donnees.fillOpacity = '0.4';
+                donnees.fade = false;
+                //Appliquer les paramètres à l'objet maphilight
+                $('area').data('maphilight', donnees).trigger('alwaysOn.maphilight');
+                $("area[shape='circle']").on('mouseover', function(){
+                    
+                    //Pour placer le texte aux coord de la matrice survolée
+                    var coordonnees=$(this).attr('coords');
+                    var coordSsRayon=coordonnees.split(',');
+                    var gauche=coordSsRayon[0];
+                    var haut=coordSsRayon[1];
+
+                    var $html=$('<span id="numero" onclick="clicCarte('+$(this).attr('id')+')">'+$(this).attr('id')+'</span>');        
+                    //M.E.F. étiquette num Matrice
+                    $html.css({
+                        "position":'absolute',
+                        "margin-top": "-10px",
+                        "margin-left": "6px",
+                        "top": haut+"px",
+                        "left": gauche+"px", 
+                        "color":"#000000",
+                        "font-family": 'bauhausregular',
+                        "font-size": "small",
+                        "cursor": "pointer",
+                        "z-index": "10"
+                    });
+                    $('.texte-blanc-encyc').append($html);
+                });
+                $("area[shape='circle']").on('mouseout', function(){
+                    $('#numero').remove();
+                }); 
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <form id="formulaire" method="POST" action="v_etude_manuel.php">
+                <input id="enonce" type="hidden" name="enonce" value="001"/>
+                <input id="encyclopedie_manuel" type="hidden" name="encyclopedie_manuel" value="1"/>
+        </form>
+        <div class="container-fluid text-center texte-blanc-encyc">
+            <div class="row">
+                <div class="col-12">
+                    <img id="image-spirale" src="../images/dlg_351_a.png" alt="351Matrices" width="754" height="774" usemap="#cartematrice" />
+                </div>
+            </div>
+        </div>
+        <map name="cartematrice">
+            <area id="000" shape="circle" coords="377,395,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="001" shape="circle"  coords="344,390,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="002" shape="circle"  coords="349,423,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="003" shape="circle"  coords="381,433,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="004" shape="circle"  coords="409,415,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="005" shape="circle"  coords="412,382,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="006" shape="circle"  coords="393,354,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="007" shape="circle"  coords="362,344,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="008" shape="circle"  coords="330,356,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="009" shape="circle"  coords="309,383,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="010" shape="circle"  coords="308,417,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="011" shape="circle"  coords="322,447,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="012" shape="circle"  coords="350,467,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="013" shape="circle"  coords="385,469,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="014" shape="circle"  coords="416,456,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="015" shape="circle"  coords="440,432,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="016" shape="circle"  coords="450,399,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="017" shape="circle"  coords="444,366,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="018" shape="circle"  coords="427,337,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="019" shape="circle"  coords="400,316,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="020" shape="circle"  coords="367,309,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="021" shape="circle"  coords="332,315,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="022" shape="circle"  coords="304,330,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="023" shape="circle"  coords="282,357,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="024" shape="circle"  coords="270,390,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="025" shape="circle"  coords="274,424,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="026" shape="circle"  coords="286,456,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="027" shape="circle"  coords="308,482,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="028" shape="circle"  coords="338,501,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="029" shape="circle"  coords="370,506,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="030" shape="circle"  coords="405,500,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="031" shape="circle"  coords="436,487,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="032" shape="circle"  coords="461,464,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="033" shape="circle"  coords="479,435,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="034" shape="circle"  coords="485,401,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="035" shape="circle"  coords="481,367,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="036" shape="circle"  coords="470,336,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="037" shape="circle"  coords="450,308,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="038" shape="circle"  coords="422,287,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="039" shape="circle"  coords="390,275,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="040" shape="circle"  coords="356,275,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="041" shape="circle"  coords="323,280,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="042" shape="circle"  coords="291,296,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="043" shape="circle"  coords="265,319,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="044" shape="circle"  coords="245,348,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="045" shape="circle"  coords="235,381,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="046" shape="circle"  coords="235,414,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="047" shape="circle"  coords="244,448,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="048" shape="circle"  coords="257,479,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="049" shape="circle"  coords="279,506,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="050" shape="circle"  coords="306,527,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="051" shape="circle"  coords="339,538,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="052" shape="circle"  coords="374,543,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="053" shape="circle"  coords="408,538,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="054" shape="circle"  coords="441,524,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="055" shape="circle"  coords="471,506,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="056" shape="circle"  coords="494,481,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="057" shape="circle"  coords="511,450,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="058" shape="circle"  coords="520,417,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="059" shape="circle"  coords="520,383,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="060" shape="circle"  coords="513,350,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="061" shape="circle"  coords="500,318,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="062" shape="circle"  coords="481,290,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="063" shape="circle"  coords="456,266,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="064" shape="circle"  coords="426,249,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="065" shape="circle"  coords="393,239,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="066" shape="circle"  coords="360,237,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="067" shape="circle"  coords="326,243,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="068" shape="circle"  coords="293,254,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="069" shape="circle"  coords="264,271,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="070" shape="circle"  coords="239,294,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="071" shape="circle"  coords="218,322,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="072" shape="circle"  coords="205,354,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="073" shape="circle"  coords="199,386,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="074" shape="circle"  coords="200,421,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="075" shape="circle"  coords="207,454,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="076" shape="circle"  coords="221,487,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="077" shape="circle"  coords="239,515,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="078" shape="circle"  coords="264,540,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="079" shape="circle"  coords="294,560,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="080" shape="circle"  coords="327,572,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="081" shape="circle"  coords="361,578,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="082" shape="circle"  coords="397,577,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="083" shape="circle"  coords="431,567,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="084" shape="circle"  coords="463,554,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="085" shape="circle"  coords="493,534,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="086" shape="circle"  coords="518,508,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="087" shape="circle"  coords="538,479,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="088" shape="circle"  coords="551,446,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="089" shape="circle"  coords="556,412,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="090" shape="circle"  coords="556,377,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="091" shape="circle"  coords="549,343,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="092" shape="circle"  coords="537,311,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="093" shape="circle"  coords="520,281,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="094" shape="circle"  coords="498,254,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="095" shape="circle"  coords="470,232,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="096" shape="circle"  coords="440,217,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="097" shape="circle"  coords="407,206,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="098" shape="circle"  coords="374,201,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="099" shape="circle"  coords="340,203,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="100" shape="circle" coords="306,211,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="101" shape="circle" coords="274,224,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="102" shape="circle" coords="244,242,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="103" shape="circle" coords="218,265,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="104" shape="circle" coords="195,292,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="105" shape="circle" coords="179,323,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="106" shape="circle" coords="167,356,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="107" shape="circle" coords="162,391,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="108" shape="circle" coords="163,426,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="109" shape="circle" coords="171,459,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="110" shape="circle" coords="184,493,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="111" shape="circle" coords="201,524,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="112" shape="circle" coords="224,552,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="113" shape="circle" coords="251,576,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="114" shape="circle" coords="281,594,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="115" shape="circle" coords="314,606,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="116" shape="circle" coords="348,614,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="117" shape="circle" coords="383,613,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="118" shape="circle" coords="417,608,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="119" shape="circle" coords="451,599,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="120" shape="circle" coords="483,584,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="121" shape="circle" coords="512,564,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="122" shape="circle" coords="537,540,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="123" shape="circle" coords="559,513,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="124" shape="circle" coords="576,481,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="125" shape="circle" coords="587,450,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="126" shape="circle" coords="593,414,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="127" shape="circle" coords="591,380,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="128" shape="circle" coords="588,346,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="129" shape="circle" coords="576,312,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="130" shape="circle" coords="561,279,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="131" shape="circle" coords="542,250,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="132" shape="circle" coords="517,225,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="133" shape="circle" coords="489,202,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="134" shape="circle" coords="458,186,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="135" shape="circle" coords="426,173,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="136" shape="circle" coords="392,166,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="137" shape="circle" coords="357,165,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="138" shape="circle" coords="325,169,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="139" shape="circle" coords="290,178,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="140" shape="circle" coords="256,192,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="141" shape="circle" coords="225,211,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="142" shape="circle" coords="198,233,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="143" shape="circle" coords="174,260,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="144" shape="circle" coords="155,290,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="145" shape="circle" coords="140,322,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="146" shape="circle" coords="130,356,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="147" shape="circle" coords="127,389,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="148" shape="circle" coords="128,424,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="149" shape="circle" coords="134,460,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="150" shape="circle" coords="144,493,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="151" shape="circle" coords="160,526,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="152" shape="circle" coords="180,555,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="153" shape="circle" coords="203,582,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="154" shape="circle" coords="231,606,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="155" shape="circle" coords="261,624,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="156" shape="circle" coords="294,638,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="157" shape="circle" coords="328,647,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="158" shape="circle" coords="364,650,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="159" shape="circle" coords="399,648,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="160" shape="circle" coords="435,641,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="161" shape="circle" coords="469,631,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="162" shape="circle" coords="502,614,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="163" shape="circle" coords="531,595,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="164" shape="circle" coords="559,570,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="165" shape="circle" coords="583,541,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="166" shape="circle" coords="601,512,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="167" shape="circle" coords="615,478,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="168" shape="circle" coords="625,446,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="169" shape="circle" coords="629,411,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="170" shape="circle" coords="628,376,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="171" shape="circle" coords="622,342,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="172" shape="circle" coords="614,308,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="173" shape="circle" coords="600,275,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="174" shape="circle" coords="581,244,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="175" shape="circle" coords="559,216,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="176" shape="circle" coords="534,190,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="177" shape="circle" coords="505,168,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="178" shape="circle" coords="473,152,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="179" shape="circle" coords="441,138,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="180" shape="circle" coords="406,133,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="181" shape="circle" coords="372,129,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="182" shape="circle" coords="338,131,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="183" shape="circle" coords="304,136,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="184" shape="circle" coords="271,146,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="185" shape="circle" coords="238,161,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="186" shape="circle" coords="209,179,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="187" shape="circle" coords="180,200,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="188" shape="circle" coords="156,226,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="189" shape="circle" coords="133,254,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="190" shape="circle" coords="116,285,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="191" shape="circle" coords="103,318,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="192" shape="circle" coords="94,352,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="193" shape="circle" coords="91,386,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="194" shape="circle" coords="92,422,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="195" shape="circle" coords="96,457,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="196" shape="circle" coords="106,491,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="197" shape="circle" coords="118,524,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="198" shape="circle" coords="136,555,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="199" shape="circle" coords="158,586,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="200" shape="circle" coords="182,612,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="201" shape="circle" coords="211,634,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="202" shape="circle" coords="242,654,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="203" shape="circle" coords="274,670,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="204" shape="circle" coords="309,680,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="205" shape="circle" coords="345,685,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="206" shape="circle" coords="380,686,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="207" shape="circle" coords="416,682,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="208" shape="circle" coords="449,675,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="209" shape="circle" coords="483,664,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="210" shape="circle" coords="515,647,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="211" shape="circle" coords="546,628,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="212" shape="circle" coords="574,605,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="213" shape="circle" coords="599,579,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="214" shape="circle" coords="621,550,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="215" shape="circle" coords="638,517,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="216" shape="circle" coords="652,483,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="217" shape="circle" coords="660,448,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="218" shape="circle" coords="664,414,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="219" shape="circle" coords="664,379,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="220" shape="circle" coords="661,343,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="221" shape="circle" coords="652,309,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="222" shape="circle" coords="639,275,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="223" shape="circle" coords="623,244,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="224" shape="circle" coords="602,212,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="225" shape="circle" coords="579,184,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="226" shape="circle" coords="552,159,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="227" shape="circle" coords="523,138,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="228" shape="circle" coords="491,120,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="229" shape="circle" coords="458,107,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="230" shape="circle" coords="422,98,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="231" shape="circle" coords="388,94,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="232" shape="circle" coords="353,94,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="233" shape="circle" coords="320,98,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="234" shape="circle" coords="284,105,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="235" shape="circle" coords="249,116,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="236" shape="circle" coords="217,132,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="237" shape="circle" coords="185,151,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="238" shape="circle" coords="158,174,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="239" shape="circle" coords="131,199,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="240" shape="circle" coords="109,227,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="241" shape="circle" coords="90,257,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="242" shape="circle" coords="75,292,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="243" shape="circle" coords="64,325,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="244" shape="circle" coords="57,360,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="245" shape="circle" coords="54,397,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="246" shape="circle" coords="57,431,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="247" shape="circle" coords="62,467,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="248" shape="circle" coords="72,502,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="249" shape="circle" coords="84,536,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="250" shape="circle" coords="101,567,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="251" shape="circle" coords="121,598,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="252" shape="circle" coords="147,627,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="253" shape="circle" coords="173,652,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="254" shape="circle" coords="203,674,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="255" shape="circle" coords="236,691,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="256" shape="circle" coords="270,704,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="257" shape="circle" coords="305,715,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="258" shape="circle" coords="340,722,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="259" shape="circle" coords="375,723,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="260" shape="circle" coords="409,721,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="261" shape="circle" coords="444,712,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="262" shape="circle" coords="479,704,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="263" shape="circle" coords="511,690,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="264" shape="circle" coords="545,673,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="265" shape="circle" coords="573,652,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="266" shape="circle" coords="601,628,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="267" shape="circle" coords="627,602,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="268" shape="circle" coords="648,574,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="269" shape="circle" coords="665,542,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="270" shape="circle" coords="681,510,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="271" shape="circle" coords="691,475,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="272" shape="circle" coords="697,439,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="273" shape="circle" coords="701,403,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="274" shape="circle" coords="699,368,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="275" shape="circle" coords="695,334,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="276" shape="circle" coords="685,298,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="277" shape="circle" coords="673,264,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="278" shape="circle" coords="656,232,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="279" shape="circle" coords="638,201,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="280" shape="circle" coords="615,172,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="281" shape="circle" coords="591,145,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="282" shape="circle" coords="564,123,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="283" shape="circle" coords="533,104,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="284" shape="circle" coords="503,88,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="285" shape="circle" coords="469,73,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="286" shape="circle" coords="435,65,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="287" shape="circle" coords="400,60,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="288" shape="circle" coords="366,57,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="289" shape="circle" coords="330,59,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="290" shape="circle" coords="294,64,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="291" shape="circle" coords="260,75,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="292" shape="circle" coords="226,87,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="293" shape="circle" coords="195,103,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="294" shape="circle" coords="164,122,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="295" shape="circle" coords="136,143,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="296" shape="circle" coords="111,168,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="297" shape="circle" coords="86,196,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="298" shape="circle" coords="66,227,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="299" shape="circle" coords="47,260,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="300" shape="circle" coords="35,294,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="301" shape="circle" coords="28,331,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="302" shape="circle" coords="377,394,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="303" shape="circle" coords="19,366,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="304" shape="circle" coords="19,401,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="305" shape="circle" coords="20,437,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="306" shape="circle" coords="25,472,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="307" shape="circle" coords="34,505,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="308" shape="circle" coords="44,539,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="309" shape="circle" coords="61,570,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="310" shape="circle" coords="80,601,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="311" shape="circle" coords="102,629,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="312" shape="circle" coords="125,657,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="313" shape="circle" coords="153,681,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="314" shape="circle" coords="181,702,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="315" shape="circle" coords="212,720,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="316" shape="circle" coords="244,734,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="317" shape="circle" coords="278,744,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="318" shape="circle" coords="311,752,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="319" shape="circle" coords="346,756,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="320" shape="circle" coords="381,756,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="321" shape="circle" coords="415,753,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="322" shape="circle" coords="451,748,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="323" shape="circle" coords="484,739,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="324" shape="circle" coords="517,728,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="325" shape="circle" coords="550,710,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="326" shape="circle" coords="583,691,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="327" shape="circle" coords="610,668,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="328" shape="circle" coords="638,643,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="329" shape="circle" coords="661,618,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="330" shape="circle" coords="681,587,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="331" shape="circle" coords="699,559,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="332" shape="circle" coords="712,527,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="333" shape="circle" coords="723,493,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="334" shape="circle" coords="731,457,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="335" shape="circle" coords="735,424,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="336" shape="circle" coords="737,389,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="337" shape="circle" coords="729,319,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="338" shape="circle" coords="718,284,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="339" shape="circle" coords="705,250,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="340" shape="circle" coords="691,218,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="341" shape="circle" coords="674,188,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="342" shape="circle" coords="652,157,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="343" shape="circle" coords="627,133,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="344" shape="circle" coords="602,107,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="345" shape="circle" coords="574,84,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="346" shape="circle" coords="544,67,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="347" shape="circle" coords="513,51,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="348" shape="circle" coords="480,39,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="349" shape="circle" coords="447,31,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="350" shape="circle" coords="413,24,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+            <area id="351" shape="circle" coords="378,22,15" href="#" onclick="clicCarte($(this).attr('id'))" />
+        </map>     
+
+    </body>
+</html>

@@ -1,0 +1,144 @@
+/* iCheck plugin Polaris skin
+----------------------------------- */
+.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12 {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 29px;
+    height: 29px;
+    border: none;
+    cursor: pointer;
+}
+.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12 {
+    background-position: -155px 0;
+}
+.iradio_polaris{
+    background: url(../icheck/polaris/pol.png) no-repeat;
+}
+.iradio_polaris1{
+    background: url(../icheck/polaris/pol1.png) no-repeat;
+}
+.iradio_polaris2{
+    background: url(../icheck/polaris/pol2.png) no-repeat;
+}
+.iradio_polaris3{
+    background: url(../icheck/polaris/pol3.png) no-repeat;
+}
+.iradio_polaris4{
+    background: url(../icheck/polaris/pol4.png) no-repeat;
+}
+.iradio_polaris5{
+    background: url(../icheck/polaris/pol5.png) no-repeat;
+}
+.iradio_polaris6{
+    background: url(../icheck/polaris/pol6.png) no-repeat;
+}
+.iradio_polaris7{
+    background: url(../icheck/polaris/pol7.png) no-repeat;
+}
+.iradio_polaris8{
+    background: url(../icheck/polaris/pol8.png) no-repeat;
+}
+.iradio_polaris9{
+    background: url(../icheck/polaris/pol9.png) no-repeat;
+}
+.iradio_polaris10{
+    background: url(../icheck/polaris/pol10.png) no-repeat;
+}
+.iradio_polaris11{
+    background: url(../icheck/polaris/pol11.png) no-repeat;
+}
+.iradio_polaris12{
+    background: url(../icheck/polaris/pol12.png) no-repeat;
+}
+:where(.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12).hover {
+    background-position: -186px 0;
+}
+:where(.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12).checked {
+    background-position: -217px 0;
+}
+:where(.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12).disabled {
+    background-position: -248px 0;
+    cursor: default;
+}
+:where(.iradio_polaris,.iradio_polaris1,.iradio_polaris2,.iradio_polaris3,.iradio_polaris4,.iradio_polaris5,.iradio_polaris6
+,.iradio_polaris7,.iradio_polaris8,.iradio_polaris9,.iradio_polaris10,.iradio_polaris11,.iradio_polaris12).checked.disabled {
+    background-position: -279px 0;
+}
+
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .iradio_polaris {
+        background-image: url(../icheck/polaris/pol.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris1 {
+        background-image: url(../icheck/polaris/pol1.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris2 {
+        background-image: url(../icheck/polaris/pol2.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris3 {
+        background-image: url(../icheck/polaris/pol3.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris4 {
+        background-image: url(../icheck/polaris/pol4.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris5 {
+        background-image: url(../icheck/polaris/pol5.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris6 {
+        background-image: url(../icheck/polaris/pol6.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris7 {
+        background-image: url(../icheck/polaris/pol7.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris8 {
+        background-image: url(../icheck/polaris/pol8.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris9 {
+        background-image: url(../icheck/polaris/pol9.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris10 {
+        background-image: url(../icheck/polaris/pol10.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris11 {
+        background-image: url(../icheck/polaris/pol11.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+    .iradio_polaris12 {
+        background-image: url(../icheck/polaris/pol12.png);
+        -webkit-background-size: 310px 31px;
+        background-size: 310px 31px;
+    }
+}

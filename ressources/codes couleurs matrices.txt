@@ -1,0 +1,13 @@
+0 sons = '#808080';/*gris*/
+1 sons = '#9c2b86';/*violet*/
+2 sons = '#00FFFF';/*cyan*/
+3 sons = '#009e62';/*vert*/
+4 sons = '#FFFF00';/*jaune*/
+5 sons = '#FFA500';/*orange*/
+6 sons = '#de0228';/*Bicolore rouge et bleu clair*/
+7 sons = '#3e66ac';/*bleu foncé 1*/
+8 sons = '#37378b';/*bleu foncé 2*/
+9 sons = '#FF69B4';/*rose*/
+10 sons = '#B22222';/*rouge brique*/
+11 sons = '#90EE90';/*vert tendre*/
+12 sons = '#000000';/*noir*/

@@ -1,0 +1,271 @@
+
+
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v18/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+
+  background: #eee;
+}
+
+.guitar-neck {
+  letter-spacing: 0.05em;
+  position: relative;
+  margin-top: 40px;
+  left: 50%;
+  margin-left: -450px;
+  width: 960px;
+  height: 250px;
+  background: #352205;
+  box-shadow: inset -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+}
+
+.guitar-neck .open-notes {
+  position: absolute;
+  top: 3px;
+  left: -35px;
+}
+
+.guitar-neck .open-notes li {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.guitar-neck .open-notes li.active {
+  color: #fa990f;
+}
+
+.guitar-neck .fret {
+  float: left;
+  width: 3px;
+  height: 250px;
+  background: #d7d6d6;
+  margin-left: 75px;
+  border-right: 2px solid #686868;
+}
+
+.guitar-neck .fret.first {
+  position: absolute;
+  width: 50px;
+  left: -52px;
+  top: 0;
+  margin-left: 0;
+  background: #211f1d;
+}
+
+.guitar-neck .dots {
+  position: absolute;
+  width: 642px;
+  height: 20px;
+  top: 44%;
+  left: 19.5%;
+}
+
+.guitar-neck .dots li {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1e9fc7;
+  margin-right: 140px;
+}
+
+.guitar-neck .strings {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 960px;
+  height: 250px;
+  line-height:normal;
+}
+
+.guitar-neck .strings li {
+  height: 1px;
+  display: inline-block;
+  width: 100%;
+  background: #c8bb93;
+  margin-bottom: 38px;
+  border-bottom: 2px solid #958963;
+  box-sizing: border-box;
+}
+
+.guitar-neck .strings li:nth-child(2) {
+  height: 2px;
+}
+
+.guitar-neck .strings li:nth-child(3) {
+  height: 3px;
+}
+
+.guitar-neck .strings li:nth-child(4) {
+  height: 4px;
+}
+
+.guitar-neck .strings li:nth-child(5) {
+  height: 5px;
+}
+
+.guitar-neck .strings li:nth-child(6) {
+  height: 6px;
+}
+*, ::after, ::before {
+	box-sizing:unset;
+}
+.guitar-neck .notes {
+  position: absolute;
+  left: 17px;
+  top: -7px;
+  width: 960px;
+  height: 258px;
+  overflow-x: hidden;
+}
+
+.guitar-neck .notes .mask {
+  position: absolute;
+  right: -189px;
+  bottom: 0;
+  width: 1184px;
+  height: 30px;
+}
+
+.guitar-neck .notes .mask ul {
+  position: relative;
+  float: left;
+}
+
+.guitar-neck .notes .mask ul li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: 50px;
+  background: #fa990f;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.guitar-neck .notes .mask.a {
+  bottom: 47px;
+}
+
+.guitar-neck .notes .mask.d {
+  bottom: 93px;
+}
+
+.guitar-neck .notes .mask.g {
+  bottom: 137px;
+}
+
+.guitar-neck .notes .mask.b {
+  bottom: 181px;
+}
+
+.guitar-neck .notes .mask.high-e {
+  bottom: 224px;
+}
+
+.controls {
+  position: relative;
+  margin-top: 40px;
+  left: 50%;
+  margin-left: -380px;
+  width: 760px;
+  height: 300px;
+  text-align: center;
+  color: #333;
+}
+
+.controls a {
+  text-decoration: none;
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 40px;
+}
+
+.controls a.down {
+  margin-right: 0;
+}
+
+.controls h2 {
+  text-transform: uppercase;
+  margin: 40px 0;
+}
+
+.controls ul li {
+  float: left;
+  width: 40px;
+  height: 20px;
+  background: #333;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.controls ul li:last-child {
+  margin-right: 0;
+}

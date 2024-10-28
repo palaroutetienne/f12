@@ -1,0 +1,252 @@
+﻿Le 13 mai 2018
+Pb :
+Etiquettes des notes pas centrées sur le cercle de la matrice quand on change lataille du canevas de 500x500 à 200x200
+Cause possibles :
+	Soit c'est le coin inférieur droit qui est centré sur la bonne position (en face du point noir) au lieu du centre de l'étiquette
+	Soit c'est le centre du cercle sur lequel s'inscrivent les étiquettes qui n'est pas le même que celui du cercle bleu
+Actions correctives :
+	Changer la taille du canevas à d'autres valeurs pour voir comment les étiquettes bougent et si c'est bien la première cause qui est en jeu.
+	Résultat : Le centre du cercle des étiquettes semble se déplacer plus vite que celui du canvas quand ce dernier grandit.
+J'ai compris :
+	Quand je veux recentrer les étiquettes, je divise la taille de l'étiquette NON REDIMENSIONNEE par deux pour placer le centre de l'étiquette sur l'endroit choisi.
+	ERREUR : Il faut calculer le centre de l'étiquette d'après la taille REDIMENSIONNÉE de l'étiquette. Banane.
+Il y a toujours un pb ... 
+	Les étiquettes forment un cercle excentré par rapport au canevas ...
+	En fait il y avait au moins deux pb : centrage étiquette ET centrage cercle contenant les étiquettes, dirait-on.
+Fix :
+	J'ai standardisé la taille des étiquettes (44x44)
+	J'ai remarqué que je faisais afficher les images à xEtiq et yEtiq et non pas à xEtiq - largeurEtiq/2 etc.
+	!!!
+Le 6 juin 2018
+J'ai trouvé Konva js, une bib qui permet d'interagir et de faire la rotation des étiquettes comme je le veux.
+FAIT :
+- Méthode afficher dans Matrice.php à modifier pour travailler non pas avec canvas directement mais avec Konva.
+Donc, dans l'ordre :
+0) Intégrer la bib Konva js
+1) faire une div, pas un élément 
+2) Récupérer la syntaxe pour tracer des cercles, afficher des images, etc. dans Konva js
+3) Adapter le code canvas en Konva js
+4) se faire un tchaï et profiter de la vie.
+FAIT
+
+A présent, il me faut réussir à faire se déplacer toutes les étiquettes en même temps et en suivant le cercle ... Pas gagné.
+On peut envisager la solution suivante :
+- A chaque fois que j'envoie les coordonnées de la souris pour faire déplacer une étiquette, je fais de même pour toutes les étiquettes.
+- Je dois donc analyser ma fonction maths qui transforme les coordonnées souris en coordonnées autour du cercle
+- Partir des coordonnées de CHAQUE étiquette pour trouver son équivalent autour du cercle.
+
+Le 14 10 2018,
+constat : Il est difficile de faire déplacer les étiquettes sur un évènement placé sur une note.
+Donc je décide de surveiller un évènement intervenant sur la matrice et qui déclenchera une ANIMATION KONV sur les notes de la matrice.
+
+Le 27/04/2019
+Pb de rotation matrice réglé.
+Pb à résoudre :
+- Les num des matrices du fichiers .csv sont ils id relatifs : ex. : 266-1, 266-2, etc ?
+0 à 351 = num matrice
+-1 -2 -3 (nb sons/modes pour une matrice il peut exister doublons 2 fois 266-2 = même mode pour des cultures musicales différentes.)
+Rq. : ds certains cas particuliers il peut y avoir des ATL
+
+- Les matrices sont affichées par un script js généré par du PHP et déclenchées sur l'événement window.onload()
+
+- La page v_etude2.php affiche seulement les matrices et pas leur description, pour l4instant.
+Solutions
+
+- Vérifier cahier des charges pour être sûr du contenu/fonctionnement de la maquette de la page à réaliser. FAIT
+
+- Lorsqu'on choisit une des matrices, on l'étudie (affichage matrice générée par la classe Matrice et pas son IMAGE). FAIT
+
+
+
+Ex 089 :
+089-1 : Chiffrage d'accord ET nom de mode potentiellement (donc deux fois 089-1)
+
+DONC : (19/10/2019)
+- Comprendre où la page auto provoque l'affichage de la mauvaise matrice FAIT
+- Sur la page édition de la matrice :
+		faire figurer des lignes reliant les notes FAIT
+
+Algo de traçage de toutes les lignes entre les notes
+DEBUT
+//Pendant le traçage des points, faire un TYPE JS contenant leurs coordonnées et leur nom de note
+tabPoint1 :
+	numero ordre point
+	x
+	y
+	nom note
+	nom element Konva
+
+tabPoint2 :
+	numero ordre point
+	x
+	y
+	nom note
+	nom element Konva
+	
+//Après traçage de tous les points
+POUR chaque tabPoint1 SAUF LE DERNIER faire
+	POUR  chaque tabPoint2 faire
+		Tracer les lignes vers toutes les notes autres que la courante et seulement celles après la courante
+	FP
+FP
+
+
+FIN
+
+FAIT
+
+Jouer les notes de la matrice affichée FAIT
+Afficher un clavier (jouable avec les touches de l'ordinateur) pour montrer où sont les notes FAIT
+Marquer les notes jouées sur la matrice FAIT
+
+Faire afficher la poignée de rotation ! FAIT (=>modif de la taille de la zone de dessin et de l'origine de la matrice)
+Faire disparaître les poignées de redimensionnement FAIT
+Faire disparaître les lignes du carré bleu de rotation FAIT
+Styliser la poignée de rotation FAIT
+
+Allonger le clavier sur trois octaves FAIT
+Faire réagir les notes piano à chaque note jouée. FAIT
+
+Mise en couleurs des matrices. FAIT
+
+Garder en mémoire la rotation et donc la note de départ de l'énoncé FAIT
+BUG !!! deux notes jouées quand une rotation, trois quand deux rotation : 
+à cause d'un double appel de la fonction qui joue l'arpège FAIT
+
+Quand rotation, les étiquettes qui passent devant un point de l'énoncé doivent passer en blanc,
+sinon, elles sont noires. FAIT
+
+Permettre la transposition en fonction des octaves. FAIT
+
+Mémoriser pour chaque matrice sa position idéale 
+(Il faut choisir une des positions orthogonales sur la plus grande base.)
+Quand il n'y a qu'une seule grande base, elle doit être horizontale et en bas du cadran.
+SE BASER SU LA GAMME MAJEURE AVEC LE RE EN HAUT.
+(l'ordre de l'énoncé est important je pense que c'est déjà le bon ordre ..) A FAIRE ?
+
+et la poser au mieux pour l'étudier (visuellement compréhensible)
+Faire tourner légèrement le cadran pour que le Do ne soit pas exactement à droite mais un peu plus bas.
+Ainsi, les matrices seront posées comme Derek l'a prévu.
++ supprimer la rotation compensatoire du coloriage bicolore A FAIRE
+
+Quand transpo octave PLUS rotation, il arrive que l'arpège voit sa 
+1ère note plus haute que les autres i.e. Vérifier la cohérence de l'arpège (du grave vers l'aigu) FAIT
+
+Par défaut, le nom des notes est affiché en français (La, Si, Do, etc.).
+Afficher la dénomination anglo-saxonne (A, B, C, etc.) en cliquant sur le bouton-logo
+Force Douze, section “Options de notations…”. A FAIRE
+
+Respecter la charte graphique (bouton "ecouter") Cf. dossier ressources, exemple de Tambien. FAIT
+
+Changer police des étiquettes notes (Petrucci) A FAIRE
+
+Les matrices de deux sons ne sont PAS JOUEES, F... ! FAIT
+
+Faire en sorte que l'arpège commence toujours par la première note. 
+Il le fait qd on vient de la fenêtre Hauteur mais pas avec bouton Ecouter FAIT
+
+Vérifier la matrice de ZERO note A FAIRE
+Vérifier la matrice de UNE note (couleur violette à mettre dans tous le cercle) A FAIRE
+Vérifier la matrice 128 :
+(bicolore s'applique seulement à la 128 de Debussy, les autres étant oranges #FFA500) A FAIRE
+
+Faire un clavier 88 touches pour éviter le bug quand usage du bouton hauteur :
+le point rouge reste FAIT
+
+Rendre le canvas responsive https://konvajs.org/docs/sandbox/Responsive_Canvas.html A FAIRE
+
+Lorsqu'on veut faire une rotation pour choisir le Do en note de départ, ça fait l'arrondi de la mort
+et on se retrouve avec la matrice placée sur Do, certes, 
+mais aussi l'arpège et le tableau de Coord commençant par Si.
+C'est sans doute l'arrondi dans MAtrice sur évènement rotation ou bien l'algo de reordonnernotes.js
+(Autrement dit : Lorsqu'on tourne sens anti-horaire pour remettre le Do à sa place d'origine, 
+ça ne joue pas un Do, même si le Do est placé sur la droite de la matrice.)
+A FAIRE
+
+Transposition par clic sur piano fait commencer l'arpège sur un DO, quelle que soit la note de départ
+ si lecture en cours FAIT
+
+
+
+Plus tard :
+
+Piano 88 touches (Garder le haut du design du clavier de Derek et ajouter mes touches dessous) FAIT
+
+Il faut ABSOLUMENT OPTIMISER (mise en cache du dessin matrice, etc.) pour que la rotation
+ait plus de ressources pour ne pas prendre du retard et afficher les notes blanches au mauvais endroit.
+
+Pourquoi les notes clignotant en rouges prennent-elles du retard au bout d'un moment ? (saturation mémoire ?)
+Pourtant les notes de piano sont les bonnes tout le temps (C. : Tone.Buffers ?) A FAIRE
+
+Choisir un son plus sympa (genre piano) A FAIRE
+
+
+Pour les layers qui ne sont pas cliquables, utiliser les FastLayers. Ils se chargent plus vite.
+https://konvajs.org/api/Konva.FastLayer.html
+
+Sur clic n'importe où : destroy de la transformation avec stage.find('tr1').destroy(); /*tr1 est une transformation)*/ A FAIRE
+Sur clic du groupe "group+numMat", ré-attacher la transformation tr1 au groupe "group+numMat". A FAIRE
+example: https://konvajs.org/docs/select_and_transform/Basic_demo.html#page-title
+
+Sauvegarder l'état initial de la matrice et faire un bouton "reset" A FAIRE
+Permettre de sauvegarder l'état d'une matrice A FAIRE
+Cf. save() et restore() : https://www.w3schools.com/tags/ref_canvas.asp
+
+Mettre en cache des shapes ou de groupes pour augmenter la vitesse de réponse de l'appli : A FAIRE
+https://konvajs.org/docs/performance/Shape_Caching.html
+
+Le contenu de l'arpege est reinitialisé à sa valeur d'origine quand on valide la fenêtre Hauteur.
+Il faut repartir de l'arpège d'origine (les notes de la matrice uniquement) 
++ la rotation actuelle (sans doute déjà stockée dans une variable). FAIT
+
+Pour faire clignoter les points rouges, ne pas s'occuper 
+du nom de la note en entier, mais de celui SANS l'octave FAIT
+
+Sens arpège ne marche plus avec ma combine permettant de jouer 
+les notes d'autres octaves avec les mêmes points rouges.
+Eventuellement je pourrais changer le contenu du tableau de notes
+pour qu'il intègre TOUT l'arpège long avec des coord semblable pour les notes d'octave différente. FAIT
+
+Euréka :
+- Création objets JS matrices en mémoire sur window.onload d'après le fichier matrices.txt FAIT
+- Mettre à jour la couleur sur clic d'une note. FAIT
+- Mettre à jour la nomenclature sur clic d'une note. FAIT
+- Numéro de matrice est stocké dans la value de l'input
+en haut de la page pour être envoyé à la page étude. FAIT
+- tester tous les énoncés de tabToutesMatrices 
+en fonction du nombre de notes cliquées sur le canevas. 
+Puis tester toutes les possibilités de "défilement" de l'énoncé cliqué
+pour comparaison avec tous les énoncés ayant le même nombre de notes. 
+
+NON : Il faut TOUJOURS un 1 en DEBUT d'ENONCE donc :
+faire "défiler" l'énoncé choisi et dès que le premier chiffre binaire est 1,
+on cherche son équivalent dans tabToutesMatrices. A FAIRE
+
+RQ. : ça peut faire plusieurs matrices ? ou bien Derek à supprimé les doublons ?
+
+Corrections Eureka :
+- Matrices de deux notes n'ont pas de couleur ... A FAIRE
+- Les étiquettes n'apparaissent pas A FAIRE
+- La couleur n'est pas toujours la bonne quand on supprime une note par clic (voir ds tabJSNotes) A FAIRE
+- MAJ nomenclature ne se fait pas ET reste à la dernière valeur si énoncé pas trouvé. 
+Va sans doute se corriger tout seul quand tous les énoncés seront passés au crible A FAIRE
+- MAJ input enonce quand suppression de notes par clic.
+
+Finition Eureka
+- Faire apparaître origine ET nomenclature de la matrice dessinée dans le cadre de droite A FAIRE
+- Fond matrice blanc ET nom notes gris A FAIRE
+- Boutons EFFACER ET Retour FAIT
+- Texte explicatif en haut de page en blanc sur fond transparent A FAIRE
+
+Entrevue avec Derek le dimanche 18/07/2021
+
+v-etude.php 
+GARDER LES NOTES CHOISIES PAR L'UTILISATEUR DANS EUREKA POUR AFFICHER UN CADRAN D'ETUDE SIMILAIRE (MEME NOTES) A FAIRE
+
+Bicolores
+Pourquoi l'énoncé des matrices 140 et 150, bicolores, ne se pésente pas comme sur l'image de la page Auto
+(constat de rotation inapropriée qui fait que la coloration se passe mal)
+Parce que le décalage nécessaire pour une orthogonalité et la coloration en symétrie est de seulement 15 degrés
+Donc traitement spécial pour les matrices de 6 sons suivantes :
+128, 140, 150, 192, 206 et 237. A FAIRE
+Utiliser les soundfonts pour un meilleur rendu des instruments https://github.com/gleitz/midi-js-soundfonts A FAIRE
